@@ -8,17 +8,45 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <SplitView x:Name="MySplitView" DisplayMode="CompactInline" IsPaneOpen="True">
+        <SplitView x:Name="MySplitView" DisplayMode="CompactInline" IsPaneOpen="False">
             <SplitView.PaneBackground>
                 <SolidColorBrush Color="White" Opacity="0.4" />
             </SplitView.PaneBackground>
             <SplitView.Background>
                 <ImageBrush ImageSource="ms-appx:///Assets/img4.jpg" Opacity="1" />
             </SplitView.Background>
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <SplitView.Pane>
+                <StackPanel>
+                    <RadioButton>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Map" />
+                            <TextBlock Text="Map" Margin="15,0,0,0" />
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Mail" />
+                            <TextBlock Text="Mail" Margin="15,0,0,0" />
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="AddFriend" />
+                            <TextBlock Text="Add a Friend" Margin="15,0,0,0" />
+                        </StackPanel>
+                    </RadioButton>
+                    <RadioButton>
+                        <StackPanel Orientation="Horizontal">
+                            <SymbolIcon Symbol="Setting" />
+                            <TextBlock Text="Settings" Margin="15,0,0,0" />
+                        </StackPanel>
+                    </RadioButton>
+                </StackPanel>
+            </SplitView.Pane>
+            <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <Button Foreground="White" FontSize="36" Margin="15" x:Name="ChangeDisplayModeButton" Content="Compact Inline" Click="ChangeDisplayModeButton_Click" />
                 <Button Foreground="White" FontSize="36" Margin="15" x:Name="PaneOpenButton" Click="PaneOpenButton_Click" />
-            </StackPanel>
+            </StackPanel>-->
         </SplitView>
     </Grid>
 </Page>
