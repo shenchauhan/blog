@@ -8,34 +8,65 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <SplitView x:Name="MySplitView" DisplayMode="CompactInline" IsPaneOpen="False">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Narrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MySplitView.DisplayMode" Value="Overlay" />
+                        <Setter Target="MySplitView.IsPaneOpen" Value="False" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Compact">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MySplitView.DisplayMode" Value="CompactOverlay" />
+                        <Setter Target="MySplitView.IsPaneOpen" Value="False" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="1920"/>
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="MySplitView.DisplayMode" Value="CompactInline" />
+                        <Setter Target="MySplitView.IsPaneOpen" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <SplitView x:Name="MySplitView" DisplayMode="Inline" IsPaneOpen="True">
             <SplitView.PaneBackground>
                 <SolidColorBrush Color="White" Opacity="0.4" />
             </SplitView.PaneBackground>
             <SplitView.Background>
-                <ImageBrush ImageSource="ms-appx:///Assets/img4.jpg" Opacity="1" />
+                <ImageBrush Stretch="UniformToFill" ImageSource="ms-appx:///Assets/img4.jpg" Opacity="1" />
             </SplitView.Background>
             <SplitView.Pane>
-                <StackPanel>
-                    <RadioButton>
+                <StackPanel Margin="0,30,0,0">
+                    <RadioButton Tag="Map" Click="RadioButtonPaneItem_Click">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="Map" />
                             <TextBlock Text="Map" Margin="15,0,0,0" />
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton>
+                    <RadioButton Tag="Mail" Click="RadioButtonPaneItem_Click">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="Mail" />
                             <TextBlock Text="Mail" Margin="15,0,0,0" />
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton>
+                    <RadioButton Tag="AddFriend" Click="RadioButtonPaneItem_Click">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="AddFriend" />
                             <TextBlock Text="Add a Friend" Margin="15,0,0,0" />
                         </StackPanel>
                     </RadioButton>
-                    <RadioButton>
+                    <RadioButton Tag="Settings" Click="RadioButtonPaneItem_Click">
                         <StackPanel Orientation="Horizontal">
                             <SymbolIcon Symbol="Setting" />
                             <TextBlock Text="Settings" Margin="15,0,0,0" />
@@ -43,10 +74,15 @@
                     </RadioButton>
                 </StackPanel>
             </SplitView.Pane>
-            <!--<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Foreground="White" FontSize="36" Margin="15" x:Name="ChangeDisplayModeButton" Content="Compact Inline" Click="ChangeDisplayModeButton_Click" />
-                <Button Foreground="White" FontSize="36" Margin="15" x:Name="PaneOpenButton" Click="PaneOpenButton_Click" />
-            </StackPanel>-->
+
+            <Frame x:Name="MainFrame" />
         </SplitView>
+        <Button x:Name="HamburgerButton" Width="{Binding ElementName=MySplitView, Path=CompactPaneLength}" VerticalAlignment="Top" Click="HamburgerButton_Click">
+            <StackPanel>
+                <Rectangle Width="15" Height="2" Margin="2" Fill="White" />
+                <Rectangle Width="15" Height="2" Margin="2" Fill="White" />
+                <Rectangle Width="15" Height="2" Margin="2" Fill="White" />
+            </StackPanel>
+        </Button>
     </Grid>
 </Page>

@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="SplitViewOptions.MapPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SplitViewOptions"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+	xmlns:maps="using:Windows.UI.Xaml.Controls.Maps"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="Narrow">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SearchControls.(RelativePanel.AlignRightWithPanel)" Value="True"/>
+                        <Setter Target="MapControl.(RelativePanel.Below)" Value="SearchControls" />
+                        <Setter Target="MapControl.(RelativePanel.AlignRightWithPanel)" Value="True" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="Wide">
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="720" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="SearchControls.(RelativePanel.AlignRightWithPanel)" Value="True"/>
+                        <Setter Target="MapControl.(RelativePanel.AlignTopWithPanel)" Value="True" />
+						<Setter Target="MapControl.(RelativePanel.LeftOf)" Value="SearchControls" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <RelativePanel>
+            <StackPanel x:Name="SearchControls" Orientation="Horizontal">
+                <TextBlock Text="Search :" VerticalAlignment="Center" Margin="10" />
+                <TextBox Width="250" VerticalAlignment="Center" Margin="10" />
+            </StackPanel>
+            <maps:MapControl x:Name="MapControl" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignLeftWithPanel="True" />
+        </RelativePanel>
+    </Grid>
+</Page>
