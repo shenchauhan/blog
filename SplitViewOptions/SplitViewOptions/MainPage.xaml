@@ -30,7 +30,7 @@
                 </VisualState>
                 <VisualState x:Name="Wide">
                     <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="1920"/>
+                        <AdaptiveTrigger MinWindowWidth="1024"/>
                     </VisualState.StateTriggers>
                     <VisualState.Setters>
                         <Setter Target="MySplitView.DisplayMode" Value="CompactInline" />
@@ -50,26 +50,26 @@
                 <StackPanel Margin="0,30,0,0">
                     <RadioButton Tag="Map" Click="RadioButtonPaneItem_Click">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Map" />
-                            <TextBlock Text="Map" Margin="15,0,0,0" />
+                            <SymbolIcon Symbol="Map" Foreground="White" />
+                            <TextBlock Text="Map" Margin="15,0,0,0" Foreground="White" />
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Tag="Mail" Click="RadioButtonPaneItem_Click">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Mail" />
-                            <TextBlock Text="Mail" Margin="15,0,0,0" />
+                            <SymbolIcon Symbol="Mail" Foreground="White" />
+                            <TextBlock Text="Mail" Margin="15,0,0,0" Foreground="White" />
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Tag="AddFriend" Click="RadioButtonPaneItem_Click">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="AddFriend" />
-                            <TextBlock Text="Add a Friend" Margin="15,0,0,0" />
+                            <SymbolIcon Symbol="AddFriend" Foreground="White" />
+                            <TextBlock Text="Add a Friend" Margin="15,0,0,0" Foreground="White" />
                         </StackPanel>
                     </RadioButton>
                     <RadioButton Tag="Settings" Click="RadioButtonPaneItem_Click">
                         <StackPanel Orientation="Horizontal">
-                            <SymbolIcon Symbol="Setting" />
-                            <TextBlock Text="Settings" Margin="15,0,0,0" />
+                            <SymbolIcon Symbol="Setting" Foreground="White" />
+                            <TextBlock Text="Settings" Margin="15,0,0,0" Foreground="White" />
                         </StackPanel>
                     </RadioButton>
                 </StackPanel>
