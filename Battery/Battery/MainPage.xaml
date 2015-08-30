@@ -1,0 +1,41 @@
+﻿<Page
+    x:Class="Battery.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Battery"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="DarkTurquoise">
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState x:Name="PlentyOfBattery">
+                    <VisualState.StateTriggers>
+                        <local:BatteryTrigger Charging="False" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="StatusTextBlock.Text" 
+								Value="Good to go!" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState x:Name="NeedsCharging">
+                    <VisualState.StateTriggers>
+                        <local:BatteryTrigger Charging="True" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                        <Setter Target="StatusTextBlock.Text" 
+								Value="Please plug in! Battery intensive process coming up" />
+                    </VisualState.Setters>
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+            <TextBlock x:Name="BatteryPercentageTextBlock" 
+					   HorizontalAlignment="Center" 
+					   FontSize="64" 
+					   FontWeight="Normal" /> 
+            <TextBlock x:Name="StatusTextBlock" FontSize="32" />
+        </StackPanel>
+    </Grid>
+</Page>
