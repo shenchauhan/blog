@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="Notes.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Notes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="Notes" Grid.Row="0" FontSize="72" FontWeight="ExtraLight" />
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition />
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            
+            <TextBox x:Name="NotesTextBox" AcceptsReturn="True" />
+            <Button x:Name="ParseButton" Content="Parse" Click="ParseButton_Click" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+            <ListView ItemsSource="{x:Bind Items}" Grid.Column="1">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="local:ShoppingItem">
+                        <StackPanel>
+                            <StackPanel Margin="10">
+                                <TextBlock Text="{x:Bind Name}" />
+                                <TextBlock Text="{x:Bind Price}" />
+                            </StackPanel>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>
