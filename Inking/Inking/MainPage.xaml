@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="Inking.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Inking"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.TopAppBar>
+        <AppBar IsOpen="True" Background="#E84A5F">
+            <StackPanel Orientation="Horizontal">
+                <AppBarButton x:Name="HighlighterButtoner" Icon="Edit" Label="Highlighter" Click="HighlighterButtoner_Click" />
+                <AppBarButton x:Name="PenButton" Icon="Edit" Label="Pen" Click="PenButton_Click" />
+                <AppBarButton x:Name="EraserButton" Icon="Delete" Label="Eraser" Click="EraserButton_Click" />
+                <AppBarButton x:Name="RecognizeButton" Icon="Font" Label="Recognize" Click="RecognizeButton_Click" />
+                <AppBarButton x:Name="SaveButton" Icon="Save" Label="Save" Click="SaveButton_Click" />
+                <AppBarButton x:Name="LoadButton" Icon="OpenFile" Label="Load" Click="LoadButton_Click" />
+            </StackPanel>
+        </AppBar>
+    </Page.TopAppBar>
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <InkCanvas x:Name="InkCanvas" />
+    </Grid>
+</Page>
