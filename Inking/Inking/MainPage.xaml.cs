@@ -33,6 +33,8 @@ namespace Inking
 
         private void HighlighterButtoner_Click(object sender, RoutedEventArgs e)
         {
+            this.InkCanvas.InkPresenter.InputProcessingConfiguration.Mode = InkInputProcessingMode.Inking;
+
             var drawingAttributes = new InkDrawingAttributes
             {
                 DrawAsHighlighter = true,
@@ -46,6 +48,8 @@ namespace Inking
 
         private void PenButton_Click(object sender, RoutedEventArgs e)
         {
+            this.InkCanvas.InkPresenter.InputProcessingConfiguration.Mode = InkInputProcessingMode.Inking;
+
             var drawingAttributes = new InkDrawingAttributes
             {
                 DrawAsHighlighter = false
