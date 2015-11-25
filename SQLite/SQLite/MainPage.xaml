@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="SQLite.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SQLite"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+	<Page.Resources>
+		<Style TargetType="Button">
+			<Setter Property="Margin" Value="20" />
+		</Style>
+		<Style TargetType="TextBox">
+			<Setter Property="Margin" Value="20" />
+		</Style>
+	</Page.Resources>
+
+	<Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition />
+			<ColumnDefinition />
+		</Grid.ColumnDefinitions>
+
+		<StackPanel Grid.Column="0">
+			<Button Content="Remove Table" Click="{x:Bind RemoveTableButton_Click}" />
+
+			<StackPanel>
+				<TextBox x:Name="NameTextBox" Header="Name" />
+				<Button Content="Create User" Click="{x:Bind CreateUserButton_Click}" />
+			</StackPanel>
+		</StackPanel>
+
+		<ListView ItemsSource="{x:Bind Users, Mode=OneWay}" Grid.Column="1">
+			<ListView.ItemTemplate>
+				<DataTemplate>
+					<StackPanel>
+						<TextBlock Text="{Binding Name}" />
+					</StackPanel>
+				</DataTemplate>
+			</ListView.ItemTemplate>
+		</ListView>
+	</Grid>
+</Page>
