@@ -60,7 +60,7 @@ namespace Notes
                     return;
             }
 
-            var items = this.NotesTextBox.Text.Split(new string[] { Environment.NewLine }, StringSplitOptions.RemoveEmptyEntries);
+            var items = this.NotesTextBox.Text.Split(new string[] { "\r" }, StringSplitOptions.RemoveEmptyEntries);
 
             var message = new ValueSet();
 

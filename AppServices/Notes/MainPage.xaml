@@ -13,7 +13,7 @@
             <RowDefinition />
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Notes" Grid.Row="0" FontSize="72" FontWeight="ExtraLight" />
+        <TextBlock Text="Shopping List" Grid.Row="0" FontSize="72" FontWeight="ExtraLight" />
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>

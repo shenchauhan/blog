@@ -13,7 +13,7 @@ namespace GroceryShop.Background
     {
         private BackgroundTaskDeferral deferral;
         private AppServiceConnection appServiceConnection;
-        private Dictionary<string, string> groceries = new Dictionary<string, string> { { "Apples", "$799" }, { "Oranges", "$1" }, { "Bananas", "$1.99" }, { "Pears", "$0.50" } };
+        private Dictionary<string, string> groceries = new Dictionary<string, string> { { "Apples", "$0.79" }, { "Oranges", "$1" }, { "Bananas", "$1.99" }, { "Pears", "$0.50" } };
 
         public void Run(IBackgroundTaskInstance taskInstance)
         {
